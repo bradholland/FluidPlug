@@ -34,7 +34,11 @@ CXX ?= g++
 # Set build and link flags
 
 BASE_FLAGS = -Wall -Wextra -Wshadow -pipe
-BASE_OPTS  = -O2 -ffast-math -mtune=generic -msse -msse2 -mfpmath=sse -fdata-sections -ffunction-sections
+BASE_OPTS  = -O2 -ffast-math -mtune=generic -fdata-sections -ffunction-sections
+
+ifeq ($(ARCH),x86)
+BASE_OPTS += -msse -msse2 -mfpmath=sse
+endif
 
 ifeq ($(MACOS),true)
 # MacOS linker flags

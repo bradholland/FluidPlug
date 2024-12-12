@@ -16,4 +16,4 @@ jobs:
     - name: Build for aarch64
       run: |
         export CC=aarch64-linux-gnu-gcc
-        make
+        make ARCH=aarch64
